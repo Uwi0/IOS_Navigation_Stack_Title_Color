@@ -9,15 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            NavigationLink(
+                destination: {
+                    NewView()
+                },
+                label: {
+                    VStack {
+                        Image(systemName: "globe")
+                            .imageScale(.large)
+                            .foregroundStyle(.tint)
+                        Text("Hello, world!")
+                    }
+                }
+            )
+            .padding()
+            .toolbar(
+                content: {
+                ToolbarItem(
+                    placement: .navigationBarLeading,
+                    content: {
+                        Text("My Title")
+                            .foregroundStyle(.red)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                    }
+                )
+            })
         }
-        .padding()
     }
 }
+
 
 #Preview {
     ContentView()
